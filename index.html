@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Love You</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="container">
+        <h1 id="press-enter">Press Enter</h1>
+        <div id="message" class="hidden">I Love You</div>
+    </div>
+
+    <!-- YouTube Video Embed -->
+    <div id="video-container" class="hidden">
+        <iframe id="youtube-video" width="560" height="315" src="https://www.youtube.com/embed/Xi8Fabcb_MA?autoplay=1&loop=1&playlist=Xi8Fabcb_MA" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        let pressCount = 0;
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                pressCount++;
+
+                if (pressCount === 1) {
+                    // Hide "Press Enter" and display "I Love You"
+                    document.getElementById('press-enter').classList.add('hidden');
+                    document.getElementById('message').classList.remove('hidden');
+                } else if (pressCount === 2) {
+                    // Hide "I Love You" and play the video
+                    document.getElementById('message').classList.add('hidden');
+                    document.getElementById('press-enter').classList.remove('hidden');
+                    document.getElementById('video-container').classList.remove('hidden');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
